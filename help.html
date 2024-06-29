@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribution Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="sun"></div>
+    
+    <div class="yellowbigbox">
+        <h1>How To Contribute?</h1>
+        <h2>Step 1: Obtain Gazette Footage </h2>
+        <h3>Where can you find them?</h3>
+        <p>• You can find them on <a href="https://www.youtube.com/results?search_query=Growtopia+before%3A2013-01-31+after%3A2012-11-30">Youtube</a> and advanced YouTube search tools.</p>
+        <p>• You can find them in old <a href="https://growtopiagame.com/forums">Growtopia Forums</a> posts.</p>
+        <p>• You can check your gallery for old photos/videos.</p>
+        <h1>How To Contribute?</h1>
+        <h2>Step 2: Check Footages</h2>
+        <p>Check footages and be sure they are not fake.</p>
+        <h2>Step 3: Send Us</h2>
+        <h3>Where you can contact us?</h3>
+        <p>• <a href="mailto:caferiusgrowtopia@gmail.com">Send us E-mail.</a></p>
+        <p>• <a href="https://www.discord.gg/uMdwwThZzn">Join our Discord server.</a></p>
+    </div>
+    
+    <div class="dark-mode-button" onclick="toggleDarkMode()"></div>
+
+    <div class="info-bar">
+        <a href="index.html">GrowArchive</a> - Contribution Guide - <a href="aboutus.html">About Us</a> - <a href="growgazedit.html">Edit</a>
+    </div>
+
+    <div class="cloud" style="background-image: url('images/cloud.png');"></div>
+    <div class="cloud" style="background-image: url('images/cloud.png');"></div>
+    <div class="cloud" style="background-image: url('images/cloud.png');"></div>
+
+    <script src="clouds.js"></script>
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            const darkModeButton = document.querySelector('.dark-mode-button');
+            if (body.classList.contains('dark-mode')) {
+                darkModeButton.style.backgroundImage = "url('images/light_icon.png')";
+            } else {
+                darkModeButton.style.backgroundImage = "url('images/dark_icon.png')";
+            }
+        }
+    </script>
+</body>
+</html>
