@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timezone Converter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    label {
+        font-weight: bold;
+    }
+    select, input, button {
+        margin: 10px;
+        padding: 8px;
+        font-size: 16px;
+    }
+    #result {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <h2>Timezone Converter: Your Time to New York Time</h2>
+    <label for="timezone">Select Timezone:</label>
+    <select id="timezone">
+        <option value="-12">UTC-12:00</option>
+        <option value="-11">UTC-11:00</option>
+        <option value="-10">UTC-10:00</option>
+        <option value="-9">UTC-09:00</option>
+        <option value="-8">UTC-08:00</option>
+        <option value="-7">UTC-07:00</option>
+        <option value="-6">UTC-06:00</option>
+        <option value="-5">UTC-05:00</option>
+        <option value="-4">UTC-04:00</option>
+        <option value="-3">UTC-03:00</option>
+        <option value="-2">UTC-02:00</option>
+        <option value="-1">UTC-01:00</option>
+        <option value="0">UTC±00:00</option>
+        <option value="1">UTC+01:00</option>
+        <option value="2">UTC+02:00</option>
+        <option value="3">UTC+03:00</option>
+        <option value="4">UTC+04:00</option>
+        <option value="5">UTC+05:00</option>
+        <option value="6">UTC+06:00</option>
+        <option value="7">UTC+07:00</option>
+        <option value="8">UTC+08:00</option>
+        <option value="9">UTC+09:00</option>
+        <option value="10">UTC+10:00</option>
+        <option value="11">UTC+11:00</option>
+        <option value="12">UTC+12:00</option>
+    </select>
+    <br>
+    <label for="time">Enter Time:</label>
+    <input type="text" id="time" placeholder="Enter time in HH:MM format">
+    <select id="ampm">
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+    </select>
+    <br>
+    <button onclick="convertTime()">Convert</button>
+    <div id="result"></div>
+
+    <script>
+        function convertTime() {
+            var timezoneOffset = parseFloat(document.getElementById("timezone").value);
+            var userTime = document.getElementById("time").value;
+            var ampm = document.getElementById("ampm").value;
+            
+            if (!userTime.match(/^\d{2}:\d{2}$/)) {
+                alert("Please enter time in HH:MM format.");
+                return;
+            }
+            
+            var timeParts = userTime.split(":");
+            var userHours = parseInt(timeParts[0]);
+            var userMinutes = parseInt(timeParts[1]);
+            
+            if (ampm === "PM" && userHours !== 12) {
+                userHours += 12;
+            } else if (ampm === "AM" && userHours === 12) {
+                userHours = 0;
+            }
+            
+            var nyHours = userHours + timezoneOffset;
+            var nyMinutes = userMinutes;
+            
+            if (nyHours < 0) {
+                nyHours += 24;
+            } else if (nyHours >= 24) {
+                nyHours -= 24;
+            }
+            
+            var nyTime = ("0" + (nyHours % 12 || 12)).slice(-2) + ":" + ("0" + nyMinutes).slice(-2) + " " + (nyHours < 12 ? "AM" : "PM");
+            document.getElementById("result").textContent = "New York Time: " + nyTime;
+        }
+    </script>
+</body>
+</html>

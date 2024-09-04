@@ -9,16 +9,114 @@ body {
     background: #60D7F2 url('images/background.png') center bottom repeat-x fixed;
     height: 100%;
     color: #ffffff;
-    text-shadow: 2px 2px 0px #000000;
     margin-bottom: 200px;
     text-align: center; /* Yazıları ortala */
+}
+
+.extrainfobox {
+    margin-bottom: 50px;
+    display: block;
+    background-image: url('images/extrainfobox.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 275px;
+    height: 310px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* WOTD Box */
+.wotd-box {
+    display: block;
+    background-image: url('images/extrainfobox.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 275px;
+    height: 310px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left:
+}
+
+/* VOTW Box */
+.votw-box {
+    display: block;
+    background-image: url('images/extrainfobox.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 275px;
+    height: 310px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1300px;
+}
+
+/* Dark Mode */
+body.dark-mode .extrainfobox {
+    background-image: url('images/extrainfobox_dark.png');
+}
+
+/* Dark Mode */
+body.dark-mode .wotd-box {
+    background-image: url('images/extrainfobox_dark.png');
+}
+
+/* Dark Mode */
+body.dark-mode .votw-box {
+    background-image: url('images/extrainfobox_dark.png');
+}
+
+/* Wide-box */
+.wide-box {
+    margin: 0 auto; /* Ortala */
+    font-size: 3
+    0px;
+}
+
+/* Save button */
+.savebutton {
+    background-color: #87b9cd;
+    color: white;
+    font-family: Century Gothic;
+    font-size: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 5px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 0px #000000;
+    text-align: center;
+    margin: 3px;
+}
+
+/* Checkboxlar */
+.checkbox {
+    background-image: url('images/checkbox.png');
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* Checkboxlar yanyana */
+.checkbox label {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Dark Mode */
+body.dark-mode .mini-box {
+    background-image: url('images/minibox_dark.png');
 }
 
 /* Dark Mode */
 body.dark-mode {
     background: #010315 url('images/background_dark.png') center bottom repeat-x fixed;
     color: #ffffff;
-    text-shadow: 2px 2px 0px #000000;
 }
 
 .sun {
@@ -36,7 +134,7 @@ body.dark-mode {
 }
 
 .bigbox {
-    position: relative;
+    position: absolute;
     overflow: hidden;
     padding: 10px;
     background-image: url('images/big_box.png');
@@ -46,27 +144,28 @@ body.dark-mode {
     width: 665px;
     height: 560px;
     top: 220px;
-    margin: 40px auto;
+    left: 390px;
     z-index: 1;
 }
 
 .fullscreenbox {
     position: relative;
-    width: 996px;
-    margin: 20px auto;
+    width: 950px;
+    height: 650px;
+    margin: 60px auto;
     padding: 20px;
-    background-image: url('images/fullscreen_box.png');
+    text-align: left;
+    background-image: url('images/gazette_box.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 1px solid #ccc;
-    border-radius: 10px;
     box-sizing: border-box;
     font-size: 16px;
 }
 
 .fullscreenbox label {
     display: block;
+    font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -78,8 +177,9 @@ body.dark-mode {
     margin-bottom: 10px;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     font-size: 16px;
 }
 
@@ -87,83 +187,22 @@ body.dark-mode {
     height: 120px;
 }
 
-.checkbox {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    font-size: 16px;
-    padding-left: 30px; /* Adjust as needed for checkbox size */
-    margin-bottom: 10px;
-}
-
-.checkbox input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px; /* Size of the checkbox */
-    width: 20px; /* Size of the checkbox */
-    background-image: url('images/checkbox.png'); /* Checkbox background image path */
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: 1px solid #aaa; /* Checkbox border */
-}
-
-.checkbox input:checked ~ .checkmark {
-    background-image: url('images/checkedbox.png'); /* Checked checkbox background image path */
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.checkbox input:checked ~ .checkmark:after {
-    display: block;
-}
-
-.checkmark:after {
-    left: 7px; /* Position the checkmark */
-    top: 3px; /* Position the checkmark */
-    width: 5px; /* Size of the checkmark */
-    height: 10px; /* Size of the checkmark */
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
-}
-
-.checkbox:hover input ~ .checkmark {
-    background-color: #bbb; /* Hover background color */
-}
-
-.checkbox input:checked ~ .checkmark {
-    background-color: #2196F3; /* Checked background color */
-}
-
 .input-area {
     margin-top: 10px; /* Adjust spacing between checkboxes and input areas */
 }
 
 .yellowbigbox {
-    position: relative;
-    padding: 20px;
+    position: absolute;
+    overflow: hidden;
+    padding: 10px;
     background-image: url('images/big_box_yellow.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin: 0 auto;
     width: 700px;
     height: 740px;
     top: 50px;
-    transform: translateY(3%);
+    left: 390px;
     z-index: 1;
 }
 
@@ -191,7 +230,7 @@ body.dark-mode {
 .topia {
     position: absolute;
     left: 50%;
-    top: 35px;
+    top: 10px;
     margin-left: -363px;
     width: 717px;
     height: 220px;
@@ -285,21 +324,34 @@ body.dark-mode .info-bar a:hover {
     color: #ffcc00;
 }
 
+body.dark-mode .fullscreenbox {
+    position: relative;
+    width: 950px;
+    height: 650px;
+    margin: 60px auto;
+    padding: 20px;
+    background-image: url('images/fullscreen_box_dark.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
 #date {
     margin-top: 20px;
     font-family: Century Gothic, Verdana, Arial;
-    font-size: 25px;
+    font-size: 20px;
     padding: 5px;
-    border: 3px solid #ccc;
-    border-radius: 10px;
-    box-sizing: border-box;
+    border: 1px solid #87b9cd;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 button {
     background-color: #87b9cd;
     color: white;
-    font-family: Century Gothic, Verdana, Arial;
+    font-family: Century Gothic;
     font-size: 35px;
     border: none;
     cursor: pointer;
@@ -311,115 +363,77 @@ button {
     margin: 3px;
 }
 
-savebutton {
-    background-color: #72e26b;
-    color: white;
+button:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    background-color: #4bacd4;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+input, textarea, select {
     font-family: Century Gothic, Verdana, Arial;
     font-size: 20px;
-    padding: 10px 20px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+}
+
+input[type="date"] {
+    font-family: Century Gothic, Verdana, Arial;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+body.dark-mode button {
+    background-color: #248fff;
+    color: white;
+    font-family: Century Gothic;
+    font-size: 35px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 10px;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.7);
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 0px #000000;
+    text-align: center;
+    margin: 3px;
 }
 
-button:hover {
-    background-color: #6498b2;
-}
-
-body.dark-mode #date,
-body.dark-mode button {
-    border-color: #87b9cd;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-}
-
-body.dark-mode button:hover {
-    background-color: #6498b2;
-}
-
-.cloud {
+.info-bar {
     position: absolute;
-    width: 100px;
-    height: 50px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: -1;
+    right: 10px;
+    top: 10px;
+    padding: 5px;
+    background-color: #2FBFDF;
+    border: solid 1px white;
+    border-radius: 10px;
+    color: white;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    text-shadow: 2px 2px 0px #000000; /* Yazıya gölge ekle */
+    z-index: 999; /* Daha yüksek z-index */
 }
 
-.cloud1 {
-    width: 100px;
-    height: 60px;
-    left: -100px;
-    top: 50px;
+.info-bar:hover {
+    background-color: #02073c;
+    border-color: #4babff;
 }
 
-.cloud2 {
-    width: 120px;
-    height: 80px;
-    left: -120px;
-    top: 150px;
-}
-
-.cloud3 {
-    width: 80px;
-    height: 40px;
-    left: -80px;
-    top: 250px;
-}
-
-/* Normal linkler için varsayılan renk */
-a {
+.info-bar a {
     color: #ffff66;
     text-decoration: none;
-    transition: color 0.3s ease; /* Renk geçiş efekti */
 }
 
-/* Linklerin üzerine gelindiğinde renk */
-a:hover {
-    color: #ffcc00; /* Sarı renk */
-}
-
-/* Custom Boxes Styles */
-.custom-boxes {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    justify-items: center;
-    align-items: start;
-    margin-top: 40px;
-}
-
-.wide-box {
-    grid-column: span 3;
-    background-image: url('images/widebox.png');
-    width: 900px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mini-box {
-    background-image: url('images/minibox.png');
-    width: 450px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.box-content {
-    padding: 20px;
-}
-
-/* Dark Mode */
-body.dark-mode .wide-box {
-    background-image: url('images/widebox_dark.png');
-}
-
-body.dark-mode .mini-box {
-    background-image: url('images/minibox_dark.png');
+.info-bar a:hover {
+    color: #ffcc00; /* Sarı parlama */
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="gazettemp.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>2023 07 20</title>
+</head>
+<body>
+    <div class="wide-box">
+        
+    </div>
+    
+    <div class="info-bar">
+        <a href="index.html">GrowArchive</a> - <a href="help.html">Contribution Guide</a> - <a href="aboutus.html">About Us</a> - <a href="growgazedit.html">Edit</a> - <a href="https://discord.gg/uMdwwThZzn">Our Discord Server</a>
+    </div>
+
+    <div class="fullscreenbox">
+    <text style="font-size: 40px">🗞 The Growtopia Gazette</text>
+    <img src="./images/VOUCHERDAYZ.png" alt="Voucher Dayz Banner" class="brand-image img-circle elevation-3" style="width: 910px;">
+    <h2>July 20th : Voucher Dayz</h2>
+    --------------------------------
+    <h2>Feel the glamour in pink and hop on for the ride of your dreams with the new Voucher Dayz item, the Fabulous Ride! Now available from the 20th to the 23rd of July! Purchase selected packs and exclusive cosmetic items during those days! Enjoy!</h2><br>
+    
+    <h2>Find out more by reading our announcement below!</h2>
+    <img src="./images/Forum-Announcement.png" alt="Voucher Dayz Banner" class="brand-image img-circle elevation-3" style="width: 320px;">
+        <h2>Guardian Applications is open now!</h2>
+        <img src="./images/Guard-Survey.png" alt="Voucher Dayz Banner" class="brand-image img-circle elevation-3" style="width: 320px;">
+    </div>
+    
+    </*Add Next & Previous Page Buttons Here*/>
+    
+    <div class="dark-mode-button" onclick="toggleDarkMode()"></div>
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            const darkModeButton = document.querySelector('.dark-mode-button');
+            if (body.classList.contains('dark-mode')) {
+                darkModeButton.style.backgroundImage = "url('images/light_icon.png')";
+            } else {
+                darkModeButton.style.backgroundImage = "url('images/dark_icon.png')";
+            }
+        }
+    </script>
+    <script src="js/toggleDarkMode.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growtopia Hour Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="custom-boxes" style="margin-top: 8px;">
+        <div class="wide-box">
+            <div class="box-content">
+                <font size="+6">Growtopia Hour Calculator</font><br>
+                This page is for calculating your Growtopia time.
+            </div>
+        </div>
+        <div class="bigbox transbox">
+            <label for="timezone">Select your timezone:</label>
+            <select id="timezone">
+                <option value="-8">UTC-12:00 (GMT-12:00) - Baker Island</option>
+                <option value="-7">UTC-11:00 (GMT-11:00) - American Samoa</option>
+                <option value="-6">UTC-10:00 (GMT-10:00) - Hawaii</option>
+                <option value="-5">UTC-09:00 (GMT-09:00) - Alaska</option>
+                <option value="-4">UTC-08:00 (GMT-08:00) - Los Angeles</option>
+                <option value="-3">UTC-07:00 (GMT-07:00) - Denver</option>
+                <option value="-2">UTC-06:00 (GMT-06:00) - Chicago</option>
+                <option value="-1">UTC-05:00 (GMT-05:00) - New York (EST)</option>
+                <option value="0" selected>UTC-04:00 (GMT-04:00) - Puerto Rico (AST)</option>
+                <option value="1">UTC-03:00 (GMT-03:00) - Buenos Aires</option>
+                <option value="2">UTC-02:00 (GMT-02:00) - South Georgia</option>
+                <option value="3">UTC-01:00 (GMT-01:00) - Azores</option>
+                <option value="4">UTC+00:00 (GMT+00:00) - London (GMT)</option>
+                <option value="5">UTC+01:00 (GMT+01:00) - Berlin</option>
+                <option value="6">UTC+02:00 (GMT+02:00) - Cairo</option>
+                <option value="7">UTC+03:00 (GMT+03:00) - Moscow</option>
+                <option value="8">UTC+04:00 (GMT+04:00) - Dubai</option>
+                <option value="9">UTC+05:00 (GMT+05:00) - Karachi</option>
+                <option value="10">UTC+06:00 (GMT+06:00) - Almaty</option>
+                <option value="11">UTC+07:00 (GMT+07:00) - Bangkok</option>
+                <option value="12">UTC+08:00 (GMT+08:00) - Singapore</option>
+                <option value="-12">UTC+09:00 (GMT+09:00) - Tokyo</option>
+                <option value="-11">UTC+10:00 (GMT+10:00) - Sydney</option>
+                <option value="-10">UTC+11:00 (GMT+11:00) - Solomon Islands</option>
+                <option value="-9">UTC+12:00 (GMT+12:00) - Auckland</option>
+            </select><br>
+            <label for="your-time">Your Time:</label>
+            <input type="time" id="your-time"><br>
+            <button onclick="convertToGrowtopiaTime()">Convert to Growtopia Time</button><br>
+            <label for="growtopia-time">Growtopia Time:</label>
+            <input type="time" id="growtopia-time"><br>
+            <button onclick="convertToYourTime()">Convert to Your Time</button><br>
+        
+            <div class="current-month" id="current-month"></div>
+        </div>
+    </div>
+
+    <script>
+        function getCurrentMonth() {
+            const monthNames = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const date = new Date();
+            const month = monthNames[date.getMonth()];
+            document.getElementById('current-month').innerText = `Current Month: ${month}`;
+        }
+
+        function convertToGrowtopiaTime() {
+            const timezoneOffset = parseInt(document.getElementById('timezone').value);
+            const yourTime = document.getElementById('your-time').value;
+
+            if (!yourTime) {
+                alert('Please enter your time.');
+                return;
+            }
+
+            let [hours, minutes] = yourTime.split(':').map(Number);
+            hours += timezoneOffset;
+
+            document.getElementById('growtopia-time').value = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        }
+
+        function convertToYourTime() {
+            const timezoneOffset = parseInt(document.getElementById('timezone').value);
+            const growtopiaTime = document.getElementById('growtopia-time').value;
+
+            if (!growtopiaTime) {
+                alert('Please enter Growtopia time.');
+                return;
+            }
+
+            let [hours, minutes] = growtopiaTime.split(':').map(Number);
+            hours -= timezoneOffset;
+
+            document.getElementById('your-time').value = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        }
+
+        getCurrentMonth();
+    </script>
+</body>
+</html>

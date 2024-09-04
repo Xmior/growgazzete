@@ -1,0 +1,131 @@
+/* CSS Coded by Caferius (Damn Caferius can code) */
+body {
+    font-family: Century Gothic, Verdana, Arial;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 50;
+    padding: 0;
+    overflow-x: hidden;
+    background: #60D7F2 url('images/background.png') center bottom repeat-x fixed;
+    height: 100%;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px #000000;
+    margin-bottom: 200px;
+    text-align: center; /* Yazıları ortala */
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #010315 url('images/background_dark.png') center bottom repeat-x fixed;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+.sun {
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    width: 161px;
+    height: 159px;
+    background-image: url('images/sun.png');
+    z-index: -100;
+}
+
+.sun.dark-mode {
+    background-image: url('images/sun_dark.png');
+}
+
+.topia {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    margin-left: -363px;
+    width: 717px;
+    height: 220px;
+    overflow: hidden;
+    z-index: 5;
+    animation: floatAnimation 5s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+    0%, 100% { transform: translateY(5); }
+    50% { transform: translateY(-5px); }
+}
+
+.dark-mode-button {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 64px;
+    height: 64px;
+    background-image: url('images/dark_icon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: none; /* Gölge kaldır */
+    z-index: 1000; /* Daha yüksek z-index */
+}
+
+.dark-mode-button:hover {
+    background-image: url('images/light_icon.png');
+}
+body.dark-mode .sun {
+    background-image: url('images/sun_dark.png');
+}
+
+body.dark-mode .info-bar {
+    background-color: #02073c;
+    border: solid 1px #4babff;
+}
+
+body.dark-mode .info-bar:hover {
+    background-color: #2FBFDF;
+    border-color: white;
+}
+
+body.dark-mode .info-bar a:hover {
+    color: #ffcc00;
+}
+
+button {
+    background-color: #87b9cd;
+    color: white;
+    font-family: Century Gothic;
+    font-size: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 5px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 0px #000000;
+    text-align: center;
+    margin: 3px;
+}
+
+button:hover {
+    background-color: #6498b2;
+}
+
+body.dark-mode button:hover {
+    color: #fffb00;
+    background-color: #17497e;
+    z-index: 20;
+}
+
+.cloud {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+/* Dark Mode */
+body.dark-mode .wide-box {
+    background-image: url('images/widebox_dark.png');
+}
+
+body.dark-mode .mini-box {
+    background-image: url('images/minibox_dark.png');
+}
