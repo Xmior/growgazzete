@@ -1,0 +1,129 @@
+body {
+  font-family: 'Century Gothic', sans-serif;
+  background: #010315 url('images/background_dark.png') center bottom repeat-x fixed;
+  color: #fff;
+}
+
+/* tablo */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border: 2px solid #444; /* tablo borderları burda */
+}
+
+/* fotolar ebesininki kadar büyüyüp sayfayı bozmasın diye sınır */
+table img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+/* Durumlara Göre Arka Plan Renkleri */
+.exists {
+  background-color: #4CAF50; /* Mevcut */
+}
+
+.does-not-exist {
+  background-color: #F44336; /* Yok */
+}
+
+.lost {
+  background-color: #FF9800; /* Kayıp */
+}
+
+.not-applicable {
+  background-color: #666; /* Bozuk yada N/A */
+}
+
+/* versiyon renkleri */
+#version0Table th {
+  background-color: #777;
+  color: #fff;
+}
+
+#version1Table th {
+  background-color: #2E8B57;
+  color: #fff;
+}
+
+#version2Table th {
+  background-color: #2E8B57;
+  color: #fff;
+}
+
+#version3Table th {
+  background-color: #2E8B57;
+  color: #fff;
+}
+
+#version4Table th {
+  background-color: #2E8B57;
+  color: #fff;
+}
+
+#version12Table th {
+  background-color: #2E8B57;
+  color: #fff;
+}
+
+thead th {
+  font-weight: bold;
+  padding: 2px;
+  font-size: 1.1em;
+  border: 1px solid #333; /* tablo borderları burda */
+}
+
+
+td {
+  padding: 4px;
+  text-align: left;
+  vertical-align: middle;
+  background-color: #257;
+}
+
+/* ikonlar solda dursun diye yoksa içine ediyo tablonun */
+td img {
+  display: inline-block;
+  margin-right: 10px; /* boşlık ayarı */
+}
+
+.platform-info {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.platform-cell {
+  display: flex;
+  align-items: center;
+}
+
+td .platform-info {
+  margin-left: 10px;
+}
+
+/* "What's New" boşluğu */
+.whats-new-container {
+  background-color: #333; /* kutu rengi */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.whats-new-inner {
+  background-color: #222; /* İç kutu rengi */
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+.whats-new-container h4 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #fff;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
