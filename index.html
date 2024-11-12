@@ -20,6 +20,8 @@
         <p>Select a date to read the gazette:</p>
         <input type="date" id="date" name="date" min="2012-11-30">
         <button onclick="goToArticle()">Go</button>
+        <br><input type="text" id="search" placeholder="Start typing to search..." autocomplete="off"><div id="results-container"></div>
+
     </div>
 
     <div class="dark-mode-button" onclick="toggleDarkMode()"></div>
@@ -69,6 +71,34 @@
             } else {
                 darkModeButton.style.backgroundImage = "url('images/dark_icon.png')";
             }
+        }
+    </script>
+    <script src="gazetteData.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+    <script>
+        const options = {
+            keys: ["title", "date"],
+            threshold: 0.4
+        };
+
+        const fuse = new Fuse(gazetteData, options);
+
+        document.getElementById("search").addEventListener("input", function(event) {
+            const query = event.target.value;
+            const results = fuse.search(query);
+            displayResults(results);
+        });
+
+        function displayResults(results) {
+            const resultsContainer = document.getElementById("results-container");
+            resultsContainer.innerHTML = "";
+
+            results.forEach(result => {
+                const item = result.item;
+                const resultElement = document.createElement("div");
+                resultElement.innerHTML = `<a href="${item.url}">${item.title} - ${item.date}</a>`;
+                resultsContainer.appendChild(resultElement);
+            });
         }
     </script>
 </body>
