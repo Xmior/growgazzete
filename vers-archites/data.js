@@ -8,7 +8,7 @@ const version0Data = [
     
   { version: 'v0.90',
     android: {
-    exist: 0,
+    exist: 2,
     icon: 'images/a.png',
     extraInfo: 'Version Code: 0',
     releaseDate: '30 November, 2012'} },
@@ -78,6 +78,8 @@ const version0Data = [
   
 ];
 
+// iOS Versiyonları Listesi ['1.00', '1.05', '1.08', '1.10', '1.12', '1.14', '1.16', '1.18', '1.19', '1.21', '1.22', '1.23', '1.24', '1.25', '1.29', '1.31', '1.36', '1.38', '1.39', '1.40', '1.42', '1.43', '1.44', '1.45', '1.46', '1.47', '1.48', '1.50', '1.51', '1.52', '1.53', '1.54', '1.55', '1.56', '1.62', '1.63', '1.64', '1.65', '1.67', '1.68', '1.70', '1.71', '1.73', '1.77', '1.79', '1.81', '1.83', '1.84', '1.85', '1.86', '1.88', '1.89', '1.92', '1.94', '1.96', '1.97', '2.00', '2.01', '2.01', '2.01', '2.02', '2.02', '2.02', '2.06', '2.06', '2.06', '2.13', '2.13', '2.13', '2.15', '2.20', '2.24', '2.25', '2.26', '2.29', '2.35', '2.37', '2.40', '2.42', '2.44', '2.45', '2.46', '2.47', '2.48', '2.49', '2.50', '2.55', '2.56', '2.58', '2.61', '2.61', '2.62', '2.64', '2.65', '2.66', '2.67', '2.68', '2.69', '2.70', '2.71', '2.73', '2.76', '2.78', '2.79', '2.80', '2.81', '2.82', '2.83', '2.84', '2.85', '2.88', '2.88', '2.89', '2.90', '2.91', '2.92', '2.94', '2.96', '2.96', '2.982', '2.983', '2.984', '2.985', '2.986', '2.987', '2.988', '2.989', '2.990', '2.991', '2.992', '2.993', '2.994', '2.995', '2.996', '2.997', '2.997', '2.998', '2.999', '3.00', '3.01', '3.011', '3.20', '3.20.1', '3.30.2', '3.30.3', '3.35', '3.36', '3.37', '3.38', '3.39', '3.40', '3.42', '3.43', '3.44', '3.45', '3.46', '3.47', '3.48', '3.50', '3.51', '3.52', '3.56', '3.59', '3.60', '3.60', '3.60', '3.61', '3.62', '3.63', '3.65', '3.66', '3.67', '3.68', '3.69', '3.70', '3.71', '3.73', '3.73', '3.74', '3.75', '3.76', '3.77', '3.78', '3.78', '3.79', '3.80', '3.81', '3.82', '3.83', '3.84', '3.85', '3.86', '3.87', '3.89', '3.90', '3.93', '3.94', '3.95', '3.96', '3.98', '3.99', '4.00', '4.01', '4.03', '4.04', '4.06', '4.09', '4.10', '4.11', '4.12', '4.13', '4.14', '4.15', '4.17', '4.18', '4.19', '4.20', '4.23', '4.24', '4.27', '4.29', '4.31', '4.32', '4.33', '4.34', '4.35', '4.36', '4.37', '4.38', '4.39', '4.40', '4.41', '4.42', '4.43', '4.44', '4.45', '4.46', '4.47', '4.48', '4.49', '4.50', '4.51', '4.52', '4.53', '4.54', '4.55', '4.57', '4.58', '4.59', '4.61', '4.61', '4.62', '4.63', '4.64']
+
 const version1Data = [
     
   { version: 'v1.00',
@@ -145,13 +147,215 @@ const version1Data = [
     releaseDate: '24 January, 2013',
     whatsNew: '* Support for new item types<br>- Fixed problem where new users could see a "you are banned" message<br>- Misc bug fixes and improvements' } },
   
-  { version: 'v1.07',
+  { version: 'v1.08',
     android: {
     exist: 1,
     icon: 'images/a.png',
-    extraInfo: 'Version Code: 17',
-    releaseDate: '24 January, 2013',
+    extraInfo: 'Version Code: 18',
+    releaseDate: '30 January, 2013',
+    whatsNew: '* Support for new item types<br>- Fixed problem where new users could see a "you are banned" message<br>- Misc bug fixes and improvements' },
+    ios: {
+    exist: 1,
+    icon: 'images/a.png',
+    extraInfo: 'iOS ID: 14',
+    releaseDate: '30 January, 2013',
     whatsNew: '* Support for new item types<br>- Fixed problem where new users could see a "you are banned" message<br>- Misc bug fixes and improvements' } },
+  
+  { version: 'v1.09',
+    android: {
+    exist: 1,
+    icon: 'images/a.png',
+    extraInfo: 'Version Code: 19',
+    releaseDate: '6 February, 2013',
+    whatsNew: ' Support for new kinds of items<br>Misc bug fixes and improvements' } },
+  
+  { version: 'v1.10',
+    ios: {
+    exist: 1,
+    icon: 'images/a.png',
+    extraInfo: 'iOS ID : 16',
+    releaseDate: '7 February, 2013'} },
+  
+  { version: 'v1.11',
+    android: {
+    exist: 1,
+    icon: 'images/a.png',
+    extraInfo: 'Version Code: 21',
+    releaseDate: '15 February, 2013'} },
+  
+  { version: 'v1.12',
+    ios: {
+    exist: 1,
+    icon: 'images/a.png',
+    extraInfo: 'iOS ID : 18',
+    releaseDate: '27 February, 2013'} },
+  
+  { version: 'v1.13',
+    android: {
+    exist: 1,
+    icon: 'images/a.png',
+    extraInfo: 'Version Code: 23',
+    releaseDate: '1 March, 2013'} },
+  
+  { version: 'v1.14',
+    ios: {
+    exist: 1,
+    icon: 'images/a.png',
+    extraInfo: 'iOS ID : 19',
+    releaseDate: '6 March, 2013'} },
+  
+  { version: 'v1.15',
+    android: {
+    exist: 1,
+    icon: 'images/a.png',
+    extraInfo: 'Version Code: 25',
+    releaseDate: '9 March, 2013'} },
+  
+  { version: 'v1.16',
+  android: {
+  exist: 1,
+  icon: 'images/a.png',
+  extraInfo: 'Version Code: 26',
+  releaseDate: '27 March, 2013',
+  whatsNew: '* New "Remember Zoom Through Doors" option added<br>Improved controls a bit<br>Trade system works better<br>Misc bug fixes and improvements' },
+  ios: {
+  exist: 1,
+  icon: 'images/a.png',
+  extraInfo: 'iOS ID: 21',
+  releaseDate: '25 March, 2013',
+  whatsNew: '* New "Remember Zoom Through Doors" option added<br>Improved controls a bit<br>Trade system works better<br>Misc bug fixes and improvements' } },
+  
+  { version: 'v1.17',
+    android: {
+    exist: 1,
+    icon: 'images/a.png',
+    extraInfo: 'Version Code: 27',
+    releaseDate: '21 April, 2013'} },
+  
+  { version: 'v1.18',
+  android: {
+  exist: 1,
+  icon: 'images/a.png',
+  extraInfo: 'Version Code: 28',
+  releaseDate: '22 April, 2013',
+  whatsNew: '* Added support for the new V2 server, this client can now be used to beta test.. check the Growtopia forums for more information.' },
+  ios: {
+  exist: 1,
+  icon: 'images/a.png',
+  extraInfo: 'iOS ID: 23',
+  releaseDate: '22 April, 2013'} },
+  
+  {
+      version: 'v1.19',
+      ios: {
+        exist: 1,
+        icon: 'images/a.png',
+        extraInfo: 'iOS ID: 24',
+        releaseDate: '28 April 2013',
+        whatsNew: ''
+      }
+    },
+  {
+     version: 'v1.20',
+     android: {
+       exist: 1,
+       icon: 'images/a.png',
+       extraInfo: 'Version Code: 30',
+       releaseDate: '2 May 2013',
+       whatsNew: 'Added support for new item types, this update will soon be required to play<br>Misc bug fixes and improvements'
+     }
+   },
+  {
+     version: 'v1.21',
+     ios: {
+       exist: 1,
+       icon: 'images/a.png',
+       extraInfo: 'iOS ID: 27',
+       releaseDate: '12 May 2013',
+       whatsNew: 'Added support for new item types, this update will soon be required to play<br>Misc bug fixes and improvements'
+     }
+   },
+  {
+     version: 'v1.22',
+     android: {
+       exist: 1,
+       icon: 'images/a.png',
+       extraInfo: 'Version Code: 32',
+       releaseDate: '16 May 2013',
+       whatsNew: 'Added support for new item types, this update will soon be required to play<br>Misc bug fixes and improvements'
+     },
+     ios: {
+       exist: 1,
+       icon: 'images/a.png',
+       extraInfo: 'iOS ID: 28',
+       releaseDate: '20 May 2013',
+       whatsNew: 'Added support for new item types, this update will soon be required to play<br>Misc bug fixes and improvements'
+     }
+   },
+  {
+      version: 'v1.23',
+      ios: {
+        exist: 1,
+        icon: 'images/a.png',
+        extraInfo: 'iOS ID: 29',
+        releaseDate: '27 May 2013',
+        whatsNew: ''
+      }
+    },
+  {
+      version: 'v1.24',
+      android: {
+        exist: 1,
+        icon: 'images/a.png',
+        extraInfo: 'Version Code: 33',
+        releaseDate: '4 June 2013',
+        whatsNew: '* Misc bug fixes and improvements'
+      },
+      ios: {
+        exist: 1,
+        icon: 'images/a.png',
+        extraInfo: 'iOS ID: 30',
+        releaseDate: '4 June 2013'
+      }
+    },
+  {
+     version: 'v1.25',
+     ios: {
+       exist: 1,
+       icon: 'images/a.png',
+       extraInfo: 'iOS ID: 31',
+       releaseDate: '16 June 2013',
+       whatsNew: ''
+     }
+   },
+  {
+      version: 'v1.26',
+      android: {
+        exist: 1,
+        icon: 'images/a.png',
+        extraInfo: 'Version Code: 34',
+        releaseDate: '20 June 2013',
+        whatsNew: ''
+      }
+    },
+  {
+      version: 'v1.27',
+      android: {
+        exist: 1,
+        icon: 'images/a.png',
+        extraInfo: 'Version Code: 35',
+        releaseDate: '28 June 2013',
+        whatsNew: ''
+      },
+      macos: {
+        exist: 2,
+        icon: 'images/a.png',
+        extraInfo: 'Bundle ID: 1',
+        releaseDate: '27 June 2013',
+        whatsNew: ''
+      }
+    },
+  
 ];
 
 const version2Data = [

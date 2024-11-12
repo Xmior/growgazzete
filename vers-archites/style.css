@@ -80,12 +80,14 @@ td {
   text-align: left;
   vertical-align: middle;
   background-color: #257;
+  border: 1px solid #444; /* tablo borderları burda */
 }
 
 /* ikonlar solda dursun diye yoksa içine ediyo tablonun */
 td img {
   display: inline-block;
   margin-right: 10px; /* boşlık ayarı */
+  border-radius: 8px;
 }
 
 .platform-info {

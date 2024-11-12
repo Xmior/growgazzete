@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Version Tablosu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Client Version Tablosu</h2>
+
+  <label for="versionNumber">Version:</label>
+  <input type="text" id="versionNumber" placeholder="Enter version number (e.g., v1.00)"><br><br>
+      
+  <label>Select Platform:</label>
+  <select id="platformSelect">
+    <option value="android">Android</option>
+    <option value="ios">iOS</option>
+    <option value="windows">Windows</option>
+    <option value="macos">macOS</option>
+    <option value="nintendo">Nintendo</option>
+    <option value="xbox">Xbox</option>
+    <option value="ps4-up">PlayStation 4 (US)</option>
+    <option value="ps4-ep">PlayStation 4 (EU)</option>
+    <option value="ps4-jp">PlayStation 4 (JP)</option>
+    <option value="ubisoft">Ubisoft</option>
+    <option value="steam">Steam</option>
+  </select><br><br>
+
+  <label>Is Exist?</label>
+  <input type="radio" name="exist" value="0"> No proof of existence
+  <input type="radio" name="exist" value="1" checked> Yes also archived
+  <input type="radio" name="exist" value="2"> Lost, got proof of existence<br><br>
+
+  <label>Icon Linki:</label>
+  <input type="text" id="iconLink" placeholder="Paste link here"><br><br>
+
+  <label>Extra Info:</label>
+  <input type="text" id="extraInfo" placeholder="Write here, use &lt;br&gt;"><br><br>
+
+  <label>Release Date:</label>
+  <input type="date" id="releaseDate"><br><br>
+
+  <label>What's New:</label>
+  <textarea id="whatsNew" placeholder="Write here (optional)"></textarea><br><br>
+
+  <button onclick="addPlatform()">Add Platform</button>
+  
+  <h2>Generated JSON</h2>
+  <pre id="jsonOutput"></pre>
+
+  <table id="clientTable">
+    <thead>
+      <tr>
+        <th>Version</th>
+        <th>Platform</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody id="clientTableBody">
+    </tbody>
+  </table>
+
+  <script>
+    const data = [];
+
+    function addPlatform() {
+      const version = document.getElementById("versionNumber").value;
+      if (!version) {
+        alert("Please enter a version number.");
+        return;
+      }
+
+      const platform = document.getElementById("platformSelect").value;
+      const exist = parseInt(document.querySelector('input[name="exist"]:checked').value);
+      const icon = document.getElementById("iconLink").value;
+      const extraInfo = document.getElementById("extraInfo").value;
+      const releaseDateInput = document.getElementById("releaseDate").value;
+      const whatsNew = document.getElementById("whatsNew").value;
+
+      const releaseDate = new Date(releaseDateInput).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+
+      // Daha önce varsa yeniden yazma hem varsa ve farklıysa güncelle
+      let versionEntry = data.find(item => item.version === version);
+
+      // Versiyon daha önce yazılmadıysa yazılsın diye yoksa hepsinin başındav 1.19 olsa bozulur
+      if (!versionEntry) {
+        versionEntry = { version: version };
+        data.push(versionEntry);
+      }
+
+      versionEntry[platform] = {
+        exist: exist,
+        icon: icon,
+        extraInfo: extraInfo,
+        releaseDate: releaseDateInput ? releaseDate : "",
+        whatsNew: whatsNew || ""
+      };
+
+      displayJSON();
+      displayTable();
+    }
+
+    function displayJSON() {
+      const jsonOutput = document.getElementById("jsonOutput");
+      jsonOutput.textContent = JSON.stringify(data, null, 2)
+        .replace(/"([^"]+)":/g, '$1:')
+        .replace(/"/g, "'");
+    }
+
+    function displayTable() {
+      const clientTableBody = document.getElementById("clientTableBody");
+      clientTableBody.innerHTML = ""; // Clear existing table rows
+
+      data.forEach(versionEntry => {
+        for (const platform in versionEntry) {
+          if (platform !== 'version') {
+            const info = versionEntry[platform];
+            const row = document.createElement("tr");
+
+            const versionCell = document.createElement("td");
+            versionCell.textContent = versionEntry.version;
+            row.appendChild(versionCell);
+
+            const platformCell = document.createElement("td");
+            platformCell.textContent = platform.charAt(0).toUpperCase() + platform.slice(1);
+            row.appendChild(platformCell);
+
+            const detailsCell = document.createElement("td");
+            detailsCell.innerHTML = `
+              <img src="${info.icon}" alt="${platform} icon" width="50" height="50"><br>
+              Exists - ${info.extraInfo || "N/A"}<br>
+              Release Date: ${info.releaseDate || "N/A"}<br>
+              ${info.whatsNew ? `<div style="border: 1px solid #333; padding: 5px; margin-top: 5px; background-color: #222;">What's New:<br>${info.whatsNew.replace(/(?:\r\n|\r|\n)/g, '<br>')}</div>` : ""}
+            `;
+            row.appendChild(detailsCell);
+
+            clientTableBody.appendChild(row);
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
