@@ -1,4 +1,20 @@
 const gazetteData = [
-    { title: "Welcome to Growtopia!", date: "2013-01-21", url: "2013_01_21.html" },
-    { title: "In-game trading system", date: "2013-01-29", url: "2012_01_29.html" },
+    { title: "Welcome to Growtopia! 2013", date: "2013-01-21", url: "2013_01_21.html" },
+    { title: "In-game trading system 2013", date: "2013-01-29", url: "2013_01_29.html" },
+    { title: "PVP Card Battle Beta Test! 2022", date: "2022-09-02", url: "2022-09-02_b.html" },
+    { title: "Player Appreciation Week Ends! 2022", date: "2022-08-22", url: "2022-08-22.html" },
+    { title: "Cinco De Mayo Week Ends! 2021", date: "2021-05-13", url: "2021-05-13.html" },
+    { title: "Upgrading Servers 2013", date: "2013-11-19", url: "2013-11-19.html" },
+    { title: "Servers Upgraded 2013", date: "2013-11-21", url: "2013-11-21.html" },
+    { title: "Update Delay! 2019", date: "2019-10-02", url: "2019-10-02.html" },
+    { title: "Valentine's Week 2013", date: "2013-02-13", url: "2013-02-13.html" },
+    { title: "GrowTech Pharma 2013", date: "2013-05-16", url: "2013-05-16.html" },
+    { title: "LIGHTS, CAMERA, ACTION, Cinema Pack 2014", date: "2014-05-14", url: "2014-05-14.html" },
+    { title: "To the dungeon with ye! 2013", date: "2013-04-20", url: "2013-04-20.html" },
+    { title: "St.Patrick's Week! 2017", date: "2017-03-17", url: "2017-03-17.html" },
+    { title: "Lunar New Year Week 2023", date: "2023-01-21", url: "2023-01-21.html" },
+    { title: "St.Patrick's Week! 2018", date: "2018-03-16", url: "2018-03-16.html" },
+    { title: "St.Patrick's Week! 2014", date: "2014-03-14", url: "2014-03-14.html" },
+    { title: "ST.PATRICK'S WEEK HAS STARTED! 2015", date: "2015-03-14", url: "2015-03-14.html" },
+    
 ];
