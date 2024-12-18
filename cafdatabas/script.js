@@ -5,6 +5,7 @@ const itemDetails = document.getElementById('itemDetails');
 const detailsContent = document.getElementById('detailsContent');
 const closeModal = document.querySelector('.close');
 
+
 // tablo kodu
 items.forEach((item, index) => {
     const row = document.createElement('tr');
