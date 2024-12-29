@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growtopia Text Generator</title>
+    <style>
+        body {
+            font-family: 'Century Gothic', sans-serif;
+            background: #010315 url('images/background_dark.png') center bottom repeat-x fixed;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #guiContainer {
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #fff;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 900px;
+            overflow: hidden;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            min-height: 40px; /* Dinamik kutu boyutu için minimum yükseklik */
+        }
+        #canvas {
+            display: block;
+            margin-top: 10px;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        #textInput {
+            margin-top: 10px;
+            width: 100%;
+            max-width: 890px;
+            height: 190px;
+            font-size: 18px;
+            background-color: #333;
+            color: #fff;
+            padding: 8px;
+            border-radius: 4px;
+            border: none;
+        }
+        #downloadButton {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #444;
+            color: #fff;
+            cursor: pointer;
+        }
+        /* Özel karakter klavyesi stili */
+        #font-container {
+            width: 800px;
+            height: 400px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .character {
+            width: 40px;
+            height: 40px;
+            background-image: url('images/gtfont.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 0.1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #fff;
+        }
+        .character:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Growtopia Text Generator</h1>
+    <div id="guiContainer">
+        <canvas id="guiCanvas" width="800" height="200"></canvas> <!-- Eklenen canvas -->
+    </div>
+    <textarea id="textInput" placeholder="Yazınızı buraya yazın." required></textarea>
+    <button id="downloadButton">Download Image</button>
+    <div id="font-container">
+        <div class="character">Ā</div>
+        <div class="character">ā</div>
+        <div class="character">Ă</div>
+        <div class="character">ă</div>
+        <div class="character">Ą</div>
+        <div class="character">ą</div>
+        <div class="character">Ć</div>
+        <div class="character">ć</div>
+        <div class="character">Ĉ</div>
+        <div class="character">ĉ</div>
+        <div class="character">Ċ</div>
+        <div class="character">ċ</div>
+        <div class="character">Č</div>
+        <div class="character">č</div>
+        <div class="character">Ď</div>
+        <div class="character">ď</div>
+        <div class="character">Đ</div>
+        <div class="character">đ</div>
+        <div class="character">Ē</div>
+        <div class="character">ē</div>
+        <div class="character">Ĕ</div>
+        <div class="character">ĕ</div>
+        <div class="character">Ė</div>
+        <div class="character">ė</div>
+        <div class="character">Ę</div>
+        <div class="character">ę</div>
+        <div class="character">Ě</div>
+        <div class="character">ě</div>
+        <div class="character">Ĝ</div>
+        <div class="character">ĝ</div>
+        <div class="character">Ğ</div>
+        <div class="character">ğ</div>
+        <div class="character">Ġ</div>
+        <div class="character">ġ</div>
+        <div class="character">Ģ</div>
+        <div class="character">ģ</div>
+        <div class="character">Ĥ</div>
+        <div class="character">ĥ</div>
+        <div class="character">Ħ</div>
+        <div class="character">ħ</div>
+        <div class="character">Ĩ</div>
+        <div class="character">ĩ</div>
+        <div class="character">Ī</div>
+        <div class="character">ī</div>
+        <div class="character">Ĭ</div>
+        <div class="character">ĭ</div>
+        <div class="character">Į</div>
+        <div class="character">į</div>
+        <div class="character">İ</div>
+        <div class="character">ı</div>
+        <div class="character">Ĳ</div>
+        <div class="character">ĳ</div>
+        <div class="character">Ĵ</div>
+        <div class="character">ĵ</div>
+        <div class="character">Ķ</div>
+        <div class="character">ķ</div>
+        <div class="character">ĸ</div>
+        <div class="character">Ĺ</div>
+        <div class="character">ĺ</div>
+        <div class="character">Ļ</div>
+        <div class="character">ļ</div>
+        <div class="character">Ľ</div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Tilesheet Klavye</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+            background: #000;
+            color: #fff;
+        }
+        #font-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .character {
+            width: 40px; /* Her tuşun boyutunu ayarlayabilirsin */
+            height: 40px;
+            background-image: url('images/gtfont.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 0.1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .character:hover {
+            transform: scale(1.1);
+        }
+        #output {
+            width: 300px;
+            height: 40px;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            padding: 5px;
+        }
+        #keyboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            color: #000;
+        }
+        .key {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+        .key:active {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div id="font-container"></div>
+<div id="output" contenteditable="true"></div>
+<div id="keyboard"></div>
+
+<script>
+    // Font verisi ve karakterlerin yer aldığı bilgiler
+    const fontData = {
+        lineHeight: 23,
+        chars: {
+            256: { x: 27, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            257: { x: 54, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            258: { x: 81, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            259: { x: 108, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            260: { x: 135, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            261: { x: 162, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            262: { x: 0, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            263: { x: 216, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            264: { x: 243, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            265: { x: 270, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            266: { x: 297, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            267: { x: 324, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            268: { x: 351, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            269: { x: 189, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            270: { x: 405, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            271: { x: 432, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            272: { x: 459, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            273: { x: 0, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            274: { x: 27, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            275: { x: 54, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            276: { x: 81, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            277: { x: 108, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            278: { x: 135, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            279: { x: 162, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            280: { x: 189, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            281: { x: 216, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            282: { x: 243, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            283: { x: 270, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            284: { x: 297, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            285: { x: 324, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            286: { x: 351, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            287: { x: 378, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            288: { x: 405, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            289: { x: 432, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            290: { x: 459, y: 28, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            291: { x: 0, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            292: { x: 27, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            293: { x: 54, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            294: { x: 81, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            295: { x: 108, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            296: { x: 135, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            297: { x: 162, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            298: { x: 189, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            299: { x: 216, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            300: { x: 243, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            301: { x: 270, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            302: { x: 297, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            303: { x: 324, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            304: { x: 351, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            305: { x: 378, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            306: { x: 405, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            307: { x: 432, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            308: { x: 459, y: 56, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            309: { x: 0, y: 84, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            310: { x: 27, y: 84, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            311: { x: 486, y: 0, width: 25, height: 26, xoffset: -2, yoffset: 0, xadvance: 21 },
+            312: { x: 54, y: 84, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            313: { x: 81, y: 84, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            314: { x: 108, y: 84, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            315: { x: 135, y: 84, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            316: { x: 162, y: 84, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            317: { x: 378, y: 0, width: 26, height: 26, xoffset: -2, yoffset: 0, xadvance: 22 },
+            254: { x: 315, y: 84, width: 15, height: 23, xoffset: -1, yoffset: 2, xadvance: 13 },
+        }
+    };
+
+    const characters = [
+        'Ā', 'ā', 'Ă', 'ă', 'Ą', 'ą', 'Ć', 'ć', 'Ĉ', 'ĉ', 'Ċ', 'ċ', 'Č', 'č',
+        'Ď', 'ď', 'Đ', 'đ', 'Ē', 'ē', 'Ĕ', 'ĕ', 'Ė', 'ė', 'Ę', 'ę', 'Ě', 'ě',
+        'Ĝ', 'ĝ', 'Ğ', 'ğ', 'Ġ', 'ġ', 'Ģ', 'ģ', 'Ĥ', 'ĥ', 'Ħ', 'ħ', 'Ĩ', 'ĩ',
+        'Ī', 'ī', 'Ĭ', 'ĭ', 'Į', 'į', 'İ', 'ı', 'Ĳ', 'ĳ', 'Ĵ', 'ĵ', 'Ķ', 'ķ',
+        'ĸ', 'Ĺ', 'ĺ', 'Ļ', 'ļ', 'Ľ' // Listed characters
+    ];
+
+    // Karakterleri HTML sayfasına ekleyen fonksiyon
+    function displayCharacters() {
+        const container = document.getElementById('font-container');
+        characters.forEach((char, index) => {
+            const charDiv = document.createElement('div');
+            charDiv.classList.add('character');
+            charDiv.dataset.charCode = char.charCodeAt(0); // Butona basıldığında kullanılacak
+
+            // Karakteri tile sheet'ten kesip göster
+            const charData = fontData.chars[char.charCodeAt(0)];
+            charDiv.style.backgroundPosition = `-${charData.x}px -${charData.y}px`;
+            charDiv.style.width = `${charData.width}px`;
+            charDiv.style.height = `${charData.height}px`;
+
+            container.appendChild(charDiv);
+
+            // Butona tıklama olayını ekle
+            charDiv.addEventListener('click', () => addToOutput(char));
+        });
+    }
+
+    // Butona tıklama fonksiyonu
+    function addToOutput(char) {
+        const output = document.getElementById('output');
+        output.textContent += char;
+    }
+
+    // Klavye tuşlarını oluşturma fonksiyonu
+    function createKeyboard() {
+        const keyboard = document.getElementById('keyboard');
+        characters.forEach((char) => {
+            const key = document.createElement('div');
+            key.classList.add('key');
+            key.textContent = char;
+            key.addEventListener('click', () => addToOutput(char));
+
+            keyboard.appendChild(key);
+        });
+    }
+
+    // Sayfa yüklendiğinde karakterleri ve klavyeyi oluştur
+    displayCharacters();
+    createKeyboard();
+</script>
+
+</body>
+</html>
