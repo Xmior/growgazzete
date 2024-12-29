@@ -24,11 +24,10 @@ header {
     color: white;
 }
 
-.table-container {
+.mainContainer {
     max-height: 99vh;
     overflow-y: auto;
 }
-
 
 table {
     width: 90%;
@@ -76,17 +75,6 @@ th {
 }
 
 #itemDetails {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -271,3 +259,41 @@ img {
 .pagination button[style*="bold"] {
     background-color: #b3d9ff; /* Aktif sayfa butonu */
 }
+
+#topicsContainer, #itemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.topic-button, .event-button {
+    image-rendering: pixelated;
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    width: px;
+    height: 36px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1.5px 0px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.item-list {
+    margin-top: 20px;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+

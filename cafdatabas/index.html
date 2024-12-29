@@ -7,28 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Caferius Item Data Base </h1>
-        <div class="table-container">
-            <table id="itemTable">
-                <tr>
-                    <th>Item Texture</th>
-                    <th>Item Name</th>
-                    <th>Release Date</th>
-                    <th>Event</th>
-                </tr>
-            </table>
-        </div>
-    <!-- Modal açıcı -->
-    <div id="modalBackground" class="modal-background">
-        <div class="item-detail" id="itemDetails">
-        <div class="modal-content">
+    <div id="mainContainer">
+        <h1>Caferius Item Database Beta</h1>
+        <p id="totalItemsCount">Total items in database: 0</p>
+        <p>Website under development, sorry for the bugs</p>
+        <h2>Select topics to see items:</h2>
+        <div id="topicsContainer" class="topics-section"></div>
+
+        <h2>Select events to see items:</h2>
+        <div id="itemsContainer" class="events-section"></div>
+        <!-- itemdetails açıcı -->
+        <div class="item-detail" id="itemDetails" style="display: none;">
             <span class="close">&times;</span>
             <div id="detailsContent"></div>
         </div>
-    </div>
-    </div>
+<div id="itemList" class="item-list"></div>
     <script src="items.js"></script>
     <script src="topics.js"></script>
     <script src="script.js"></script>
+    <script src="events.js"></script>
 </body>
 </html>
