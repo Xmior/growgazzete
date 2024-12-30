@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background: #60D7F2 url('images/background.png') center bottom repeat-x fixed;
+    background: #60D7F2 url('/images/background.png') center bottom repeat-x fixed;
     height: 100%;
     color: #ffffff;
     text-shadow: 2px 2px 0px #000000;
@@ -16,7 +16,7 @@ body {
 
 /* Dark Mode */
 body.dark-mode {
-    background: #010315 url('images/background_dark.png') center bottom repeat-x fixed;
+    background: #010315 url('/images/background_dark.png') center bottom repeat-x fixed;
     color: #ffffff;
     text-shadow: 2px 2px 0px #000000;
 }
@@ -27,19 +27,19 @@ body.dark-mode {
     top: 40px;
     width: 161px;
     height: 159px;
-    background-image: url('images/sun.png');
+    background-image: url('/images/sun.png');
     z-index: -100;
 }
 
 .sun.dark-mode {
-    background-image: url('images/sun_dark.png');
+    background-image: url('/images/sun_dark.png');
 }
 
 .bigbox {
     position: relative;
     overflow: hidden;
     padding: 10px;
-    background-image: url('images/big_box.png');
+    background-image: url('/images/big_box.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -55,7 +55,7 @@ body.dark-mode {
     width: 996px;
     margin: 20px auto;
     padding: 20px;
-    background-image: url('images/fullscreen_box.png');
+    background-image: url('/images/fullscreen_box.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -110,14 +110,14 @@ body.dark-mode {
     left: 0;
     height: 20px; /* Size of the checkbox */
     width: 20px; /* Size of the checkbox */
-    background-image: url('images/checkbox.png'); /* Checkbox background image path */
+    background-image: url('/images/checkbox.png'); /* Checkbox background image path */
     background-size: cover;
     background-repeat: no-repeat;
     border: 1px solid #aaa; /* Checkbox border */
 }
 
 .checkbox input:checked ~ .checkmark {
-    background-image: url('images/checkedbox.png'); /* Checked checkbox background image path */
+    background-image: url('/images/checkedbox.png'); /* Checked checkbox background image path */
 }
 
 .checkmark:after {
@@ -155,7 +155,7 @@ body.dark-mode {
 .yellowbigbox {
     position: relative;
     padding: 20px;
-    background-image: url('images/big_box_yellow.png');
+    background-image: url('/images/big_box_yellow.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -168,11 +168,11 @@ body.dark-mode {
 }
 
 .bigbox.dark-mode {
-    background-image: url('images/big_box_dark.png');
+    background-image: url('/images/big_box_dark.png');
 }
 
 .transbox {
-    background-image: url('images/big_box.png');
+    background-image: url('/images/big_box.png');
     background-repeat: repeat;
 }
 
@@ -216,7 +216,7 @@ body.dark-mode {
     top: 10px;
     width: 64px;
     height: 64px;
-    background-image: url('images/dark_icon.png');
+    background-image: url('/images/dark_icon.png');
     background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -225,15 +225,15 @@ body.dark-mode {
 }
 
 .dark-mode-button:hover {
-    background-image: url('images/light_icon.png');
+    background-image: url('/images/light_icon.png');
 }
 
 body.dark-mode .bigbox {
-    background-image: url('images/big_box_dark.png');
+    background-image: url('/images/big_box_dark.png');
 }
 
 body.dark-mode .sun {
-    background-image: url('images/sun_dark.png');
+    background-image: url('/images/sun_dark.png');
 }
 
 .info-bar {
@@ -439,7 +439,7 @@ a:hover {
 
 .wide-box {
     grid-column: span 3;
-    background-image: url('images/widebox.png');
+    background-image: url('/images/widebox.png');
     width: 900px;
     height: 200px;
     display: flex;
@@ -448,7 +448,7 @@ a:hover {
 }
 
 .mini-box {
-    background-image: url('images/minibox.png');
+    background-image: url('/images/minibox.png');
     width: 450px;
     height: 200px;
     display: flex;
@@ -463,9 +463,9 @@ a:hover {
 
 /* Dark Mode */
 body.dark-mode .wide-box {
-    background-image: url('images/widebox_dark.png');
+    background-image: url('/images/widebox_dark.png');
 }
 
 body.dark-mode .mini-box {
-    background-image: url('images/minibox_dark.png');
+    background-image: url('/images/minibox_dark.png');
 }

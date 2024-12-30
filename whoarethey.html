@@ -1,77 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Who Are They?</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Who Are They?</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
+
 <body>
-    <div class="sun"></div>
-    <div class="custom-boxes" style="margin-top: 80px;">
-        <div class="wide-box">
-            <div class="box-content">
-                <font size="+6">Who Are They.</font><br>
-                This page is for list some "special" people.
-            </div>
-        </div>
-        <div class="mini-box">
-            <div class="box-content">
-                <font size="+2" style="color: #ffff66;">slipperycow</font><br>
-                • Hacked : <font style="color: #ffca6f;">@Seth & @Hamumu</font><br>
-                • Reason of the <font style="color: #6fd357;">Rollback 4</font>.
-            </div>
-        </div>
-        <div class="mini-box">
-            <div class="box-content">
-                <font size="+2" style="color: #ffff66;">Nexica</font><br>
-                • Hacked : <font style="color: #ff8ff3;">@Bumblefish</font><br>
-                • Developer of Skystellar, first vend locator
-            </div>
-        </div>
-        <div class="mini-box">
-            <div class="box-content">
-                <font size="+2" style="color: #ffff66;">Amateurz</font><br>
-                • Hacked : <font style="color: #ff8ff3;">@Diversa</font>
-            </div>
-        </div>
-        <div class="mini-box">
-            <div class="box-content">
-                <font size="+2" style="color: #ffff66;">YLKO</font><br>
-                • Hacked : <font style="color: #ff8ff3;">@AtkinsSJ, @Mahhtin, @Starkos</font> & Growtopia Twitter Account.
-            </div>
-        </div>
-        <div class="mini-box">
-            <div class="box-content">
-                <font size="+2" style="color: #ffff66;">bme</font><br>
-                • Hacked : <font style="color: #ff8ff3;">@Av8r</font>
-            </div>
-        </div>
-    </div>
-    <div class="dark-mode-button" onclick="toggleDarkMode()"></div>
+	<script src="/scripts/clouds.js"></script>
+	<script src="/scripts/toggleDarkMode.js"></script>
+	
+	<div class="sun"></div>
+	<div class="custom-boxes" style="margin-top: 80px;">
+		<div class="wide-box">
+			<div class="box-content">
+				<font size="+6">Who Are They.</font><br>
+				This page is for list some "special" people.
+			</div>
+		</div>
+		<div class="mini-box">
+			<div class="box-content">
+				<font size="+2" style="color: #ffff66;">slipperycow</font><br>
+				• Hacked : <font style="color: #ffca6f;">@Seth & @Hamumu</font><br>
+				• Reason of the <font style="color: #6fd357;">Rollback 4</font>.
+			</div>
+		</div>
+		<div class="mini-box">
+			<div class="box-content">
+				<font size="+2" style="color: #ffff66;">Nexica</font><br>
+				• Hacked : <font style="color: #ff8ff3;">@Bumblefish</font><br>
+				• Developer of Skystellar, first vend locator
+			</div>
+		</div>
+		<div class="mini-box">
+			<div class="box-content">
+				<font size="+2" style="color: #ffff66;">Amateurz</font><br>
+				• Hacked : <font style="color: #ff8ff3;">@Diversa</font>
+			</div>
+		</div>
+		<div class="mini-box">
+			<div class="box-content">
+				<font size="+2" style="color: #ffff66;">YLKO</font><br>
+				• Hacked : <font style="color: #ff8ff3;">@AtkinsSJ, @Mahhtin, @Starkos</font> & Growtopia Twitter Account.
+			</div>
+		</div>
+		<div class="mini-box">
+			<div class="box-content">
+				<font size="+2" style="color: #ffff66;">bme</font><br>
+				• Hacked : <font style="color: #ff8ff3;">@Av8r</font>
+			</div>
+		</div>
+	</div>
+	<div class="dark-mode-button" onclick="toggleDarkMode()"></div>
 
-    <div class="info-bar">
-        <a href="index.html">GrowArchive</a> - <a href="help.html">Contribution Guide</a> - About Us - <a href="growgazedit.html">Edit</a>
-    </div>
+	<div class="info-bar">
+		<a href="index.html">GrowArchive</a> - <a href="help.html">Contribution Guide</a> - About Us - <a
+			href="growgazedit.html">Edit</a>
+	</div>
 
-    <div class="cloud" style="background-image: url('images/cloud.png');"></div>
-    <div class="cloud" style="background-image: url('images/cloud.png');"></div>
-    <div class="cloud" style="background-image: url('images/cloud.png');"></div>
+	<div class="cloud" style="background-image: url('images/cloud.png');"></div>
+	<div class="cloud" style="background-image: url('images/cloud.png');"></div>
+	<div class="cloud" style="background-image: url('images/cloud.png');"></div>
 
-    <script src="clouds.js"></script>
-    <script>
-        function toggleDarkMode() {
-            const body = document.body;
-            body.classList.toggle('dark-mode');
-            const darkModeButton = document.querySelector('.dark-mode-button');
-            if (body.classList.contains('dark-mode')) {
-                darkModeButton.style.backgroundImage = "url('images/light_icon.png')";
-            } else {
-                darkModeButton.style.backgroundImage = "url('images/dark_icon.png')";
-            }
-        }
-    </script>
-    <script src="js/toggleDarkMode.js"></script>
+	<script>
+		function toggleDarkMode() {
+			const body = document.body;
+			body.classList.toggle('dark-mode');
+			const darkModeButton = document.querySelector('.dark-mode-button');
+			if (body.classList.contains('dark-mode')) {
+				darkModeButton.style.backgroundImage = "url('images/light_icon.png')";
+			} else {
+				darkModeButton.style.backgroundImage = "url('images/dark_icon.png')";
+			}
+		}
+	</script>
 </body>
+
 </html>
