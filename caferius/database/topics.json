@@ -1,6 +1,4 @@
-// bakmasan olmaz zaten dimi oç
-
-const topics = [
+[
     {
         "Topic Name": "My fan made items",
         "Link": "https://www.growtopiagame.com/forums/forum/your-contributions/suggestion-box/7100259-my-fan-made-items",
@@ -133,5 +131,5 @@ const topics = [
         "ID": "NULL",
         "Release Date": "",
         "Button": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGoAAAAlCAYAAACqL3wuAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAaqADAAQAAAABAAAAJQAAAAALDFcuAAABJElEQVRoBe3bsQ2DQBBEUZ9FB5RDJ4heEM3QCVXQAtSAted0cn7wCRAaORjNk8Nt53l+6tm27ekfvlALrOvaqlArqEI6jgNV0DL/BaZp+hRWW5alI1Xgw1ug/kBl8+VVs1FaQKi0CjATCoiSKgmVVgFmQgFRUiWh0irATCggSqokVFoFmAkFREmVhEqrADOhgCipklBpFWAmFBAlVRIqrQLMhAKipEpCpVWAmVBAlFRJqLQKMBMKiJIqCZVWAWZCAVFSJaHSKsBMKCBKqiRUWgWYCQVESZWESqsAM6GAKKmSUGkVYCYUECVVEiqtAsyEAqKkSsN1Xf3+xkO2NM/7Wd1GldFw33dv4yHb+yipQSGVUT8Nnef5Gccx/c7s5QUKad/39gPo5DRN7DZzNQAAAABJRU5ErkJggg=="
-    },
-];
+    }
+]
