@@ -13,11 +13,38 @@ async function get_items() {
 	return items ??= await fetch('./items.json').then(resposne => resposne.json());
 }
 
+/**
+ * @function
+ * @template T
+ * @param {T} object 
+ * @param {(arg0: T) => void} callback 
+ * @returns 
+ */
+// function and(object, callback) {
+// 	callback(object);
+// 	return object;
+// }
+
+/**
+ * @param {string} tag
+ * @param {(arg0: HTMLElement) => void} callback
+ */
+// function domAnd(tag, callback) {
+// 	const dom = document.createElement(tag);
+// 	return and(dom, callback);
+// }
+
 // Ana sayfayı doldur - Topics
 async function populateTopics() {
 	for (const topic of topics) {
 		const button = document.createElement('button');
-		button.innerHTML = `<span>${topic["Topic Name"]}</span>`;
+		button.innerText = topic["Topic Name"]
+
+		// domAnd("span", (span) => {
+		// 	span.innerText = topic["Topic Name"];
+		// 	button.append(span);
+		// });
+
 		button.style.backgroundImage = `url('${topic.Button}')`;
 		button.classList.add('topic-button');
 		button.addEventListener('click', () => showItemsByTopic(topic.ID));
@@ -33,8 +60,8 @@ async function populateEvents() {
 
 	for (const event of eventsSet) {
 		const button = document.createElement('button');
-
 		button.innerText = event;
+		button.className = "event-button";
 		button.addEventListener('click', () => showItemsByEvent(event));
 		itemsContainer.appendChild(button);
 	}
@@ -64,14 +91,35 @@ function displayItems(filteredItems) {
 		const row = document.createElement('div');
 
 		row.classList.add('item-row');
-		row.innerHTML = `
-            <img src="${item['Item Texture']}" alt="${item.Name}" width="50">
-            <div>
-                <h4 class="${item.isSuggested === 0 ? 'name-green' : item.isSuggested === 1 ? 'name-blue' : 'name-orange'}">${item.Name}</h4>
-                <p>Release Date: ${item['Release Date']}</p>
-                <p>Event: ${item.Event}</p>
-            </div>
-        `;
+
+		const img = document.createElement("img");
+		img.setAttribute("src", item['Item Texture']);
+		img.setAttribute("alt", item.Name);
+
+		const container = document.createElement("div");
+		{
+			const h4 = document.createElement("h4");
+			h4.classList.add(item.isSuggested === 0 ? 'name-green' : item.isSuggested === 1 ? 'name-blue' : 'name-orange');
+
+			const release_date = document.createElement("p");
+			release_date.innerText = `Release Date: ${item['Release Date']}`;
+
+			const event = document.createElement("p");
+
+			event.innerText = `Event: ${item.Event}`;
+
+			container.append(
+				h4,
+				release_date,
+				event
+			);
+		}
+
+		row.append(
+			img,
+			container
+		);
+
 		row.addEventListener('click', () => showItemDetails(item));
 		itemList.appendChild(row);
 	}
@@ -142,7 +190,7 @@ function showItemDetails(item) {
 
 	// Detay içeriğini güncelle ve modal'ı göster
 	detailsContent.innerHTML = content;
-	document.getElementById('itemDetails').style.display = 'flex';
+	openItemDetailsWithAnimation();
 }
 
 
@@ -155,43 +203,46 @@ document.addEventListener('keydown', (event) => {
 
 // x'e basınca kapa
 const closeItemDetails = document.querySelector('.close');
-if (closeItemDetails) {
-	closeItemDetails.addEventListener('click', () => {
+
+if (closeItemDetails)
+	closeItemDetails.addEventListener('click', closeItemDetailsWithAnimation);
+
+const modal = document.getElementById('itemDetails');
+const modal_container = modal?.parentElement;
+
+modal_container.addEventListener("click", (event) => {
+	if (event.target == modal_container)
 		closeItemDetailsWithAnimation();
-	});
-}
+})
 
 // Ekran dışına basınca kapa
 document.addEventListener('click', (event) => {
-	const itemDetails = document.getElementById('modalBackground');
-	if (event.target.id === 'modalBackground') {
+	if (event.target.id === 'modalBackground')
 		closeItemDetailsWithAnimation();
-	}
 });
 
 // Modal kapatma animasyonu
 function closeItemDetailsWithAnimation() {
-	const itemDetails = document.getElementById('itemDetails');
-	itemDetails.classList.add('fade-out'); // Kapanma animasyonu başlat
+	// modal.classList.add('fade-out'); // Kapanma animasyonu başlat
+	modal_container?.classList?.remove('visible'); // Kapanma animasyonu başlat
 
-	setTimeout(() => {
-		itemDetails.style.display = 'none'; // Animasyon tamamlandıktan sonra kapat
-		itemDetails.classList.remove('fade-out'); // Gelecek açılma için animasyonu kaldır
-	}, 300); // Animasyon süresiyle uyumlu
+
+	// setTimeout(() => {
+	// 	modal_container.style.display = 'none'; // Animasyon tamamlandıktan sonra kapat
+	// 	modal.classList.remove('fade-out'); // Gelecek açılma için animasyonu kaldır
+	// }, 300); // Animasyon süresiyle uyumlu
 }
 
 // Modal açma animasyonu
 function openItemDetailsWithAnimation() {
-	const itemDetails = document.getElementById('itemDetails');
+	// if (!modal_container) return; // Eğer modal bulunamazsa işlemi durdur
 
-	if (!itemDetails) return; // Eğer modal bulunamazsa işlemi durdur
+	// modal_container.style.display = 'flex'; // Modal görünür yap
+	modal_container?.classList?.add('visible'); // Açılma animasyonu başlat
 
-	itemDetails.style.display = 'flex'; // Modal görünür yap
-	itemDetails.classList.add('fade-in'); // Açılma animasyonu başlat
-
-	setTimeout(() => {
-		itemDetails.classList.remove('fade-in'); // Animasyon sınıfını kaldır
-	}, 300); // 300ms animasyon süresi
+	// setTimeout(() => {
+	// 	modal.classList.remove('fade-in'); // Animasyon sınıfını kaldır
+	// }, 300); // 300ms animasyon süresi
 }
 
 // Başlangıçta topics ve events'i yükle
